@@ -1,10 +1,13 @@
 import React from 'react';
-import { TouchableOpacity, Text,  View, Image } from 'react-native';
+import {TouchableOpacity, Text, View, Image, Dimensions} from 'react-native';
 import icons from '../../assets/icons';
 import styles from '../../assets/styles';
 import colors from '../../assets/colors';
 
-const Button = ({ label, onPress, buttonStyle, disabled, showIcon }) => {
+const {height , width} = Dimensions.get("window")
+const wp = percentage => (width * percentage) / 100;
+
+const Button = ({label, onPress, style, disabled}) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -14,42 +17,37 @@ const Button = ({ label, onPress, buttonStyle, disabled, showIcon }) => {
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'center',
-          borderRadius: showIcon ? 8 : 25,
+          borderRadius: 25,
           opacity: disabled ? 0.6 : 1,
+          height : height * 0.06,
+          width  : "auto"
         },
-        styles.pdh20,
-        styles.mv12,
-        showIcon ? styles.pdv4  : styles.pdv8 ,
-        buttonStyle,
+        style,
       ]}
       activeOpacity={0.8}
-      disabled={disabled}
-    >
+      disabled={disabled}>
       <View
         style={{
           flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: showIcon ? 'space-between' : 'center',
-          width: showIcon ? '80%' : '100%',
+          justifyContent:   'center',
+          width: '100%',
           paddingVertical: 6,
-        }}
-      >
+        }}>
         <Text
           style={[
-            styles.ts18,
+            styles.ts17,
             styles.fwBold,
-            styles.mr12,
-            { color: colors.white, textAlign: 'center' },
-          ]}
-        >
+            {color: colors.white, textAlign: 'center' , fontSize : wp(4.5)},
+          ]}>
           {label}
         </Text>
-        {showIcon && (
-          <Image source={icons.arrow_right} style={[styles.icon36]} />
-        )}
       </View>
     </TouchableOpacity>
   );
 };
 
 export default Button;
+
+
+

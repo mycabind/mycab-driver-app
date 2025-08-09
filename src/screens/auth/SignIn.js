@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, View, Text, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {TitleInput, Button,Logo,TitleHeader} from '../../components/shared';
+import {TitleInput, Button, Logo, TitleHeader} from '../../components/shared';
 import colors from '../../assets/colors';
 import styles from '../../assets/styles';
 import icons from '../../assets/icons';
@@ -11,7 +11,11 @@ const SignIn = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={[styles.p16]}>
-      <TitleHeader onPress={()=>{navigation.navigate('CreatingAccount')}}/>
+      <TitleHeader
+        onPress={() => {
+          navigation.navigate('CreateAccount');
+        }}
+      />
 
       <View style={[{alignItems: 'center'}, styles.mt20]}>
         <Text style={[styles.h1]}>Sign In</Text>
@@ -20,10 +24,23 @@ const SignIn = () => {
       <TitleInput title="Email" placeholder="example@gmail.com" />
       <TitleInput title="Password" secureTextEntry="false" />
       <TouchableOpacity onPress={() => navigation.navigate('NewPass')}>
-        <Text style={[{textAlign:'right',color:colors.primary,textDecorationLine:'underline'}]}>Forgot Password?</Text>
+        <Text
+          style={[
+            {
+              textAlign: 'right',
+              color: colors.primary,
+              textDecorationLine: 'underline',
+            },
+          ]}>
+          Forgot Password?
+        </Text>
       </TouchableOpacity>
-      {/* //connect to home screen */}
-      <Button label="Sign In" onPress={()=>{navigation.navigate('Home')}} /> 
+      <Button
+        label="Sign In"
+        onPress={() => {
+          navigation.navigate('Home');
+        }}
+      />
       <View
         style={{
           flex: 1,
@@ -65,11 +82,25 @@ const SignIn = () => {
           />
         </View>
       </View>
-      <Logo image={icons.google}/>
-      <View style={[{alignItems: 'center',flexDirection:'row',justifyContent:'center'}, styles.mt20,]}>
+      <Logo image={icons.google} />
+      <View
+        style={[
+          {
+            alignItems: 'center',
+            flexDirection: 'row',
+            justifyContent: 'center',
+          },
+          styles.mt20,
+        ]}>
         <Text style={[styles.ts12]}>Already have an account?</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('CreatingAccount')}>
-          <Text style={[{color: colors.primary,textDecorationLine:'underline'}, styles.fwBold, styles.ts12,styles.ml4]}>
+        <TouchableOpacity onPress={() => navigation.navigate('CreateAccount')}>
+          <Text
+            style={[
+              {color: colors.primary, textDecorationLine: 'underline'},
+              styles.fwBold,
+              styles.ts12,
+              styles.ml4,
+            ]}>
             Sign Up
           </Text>
         </TouchableOpacity>

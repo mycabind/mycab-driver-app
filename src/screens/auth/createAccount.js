@@ -1,20 +1,29 @@
-
 import React from 'react';
 import {View, Text, Image, SafeAreaView, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import styles from '../../assets/styles';
-import {TitleInput, CheckBox, Button,Logo} from '../../components/shared';
+import {
+  TitleInput,
+  CheckBox,
+  Button,
+  Logo,
+  OTPInput,
+  TitleHeader,
+} from '../../components/shared';
 import colors from '../../assets/colors';
 import icons from '../../assets/icons';
-const CreatingAccount = () => {
-
+const CreateAccount = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={[styles.p16]}>
-      
       <View style={[{alignItems: 'center'}, styles.mt10]}>
-        <Text style={[styles.h1, styles.mb12]}>Creating Account</Text>
-        <Text style={[{color: colors.black400,textAlign:'center'}, styles.ts16,styles.mb12]}>
+        <Text style={[styles.h1, styles.mb12]}>Create Account</Text>
+        <Text
+          style={[
+            {color: colors.black400, textAlign: 'center'},
+            styles.ts16,
+            styles.mb12,
+          ]}>
           fill your information below or register with your social account
         </Text>
       </View>
@@ -22,14 +31,17 @@ const CreatingAccount = () => {
       <TitleInput title="Email" placeholder="example@gmail.com" />
       <TitleInput title="Password" secureTextEntry="true" />
       <CheckBox label="Agree with Terms & Condition" />
-      <Button label="Sign up" onPress= {() => navigation.navigate('Profile')} />
+      <Button label="Sign up" onPress={() => navigation.navigate('Profile')} />
       <View
-        style={[styles.mt12,{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: colors.white,
-        }]}>
+        style={[
+          styles.mt12,
+          {
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: colors.white,
+          },
+        ]}>
         <View
           style={[
             {
@@ -64,12 +76,24 @@ const CreatingAccount = () => {
           />
         </View>
       </View>
-      <Logo image={icons.google} 
-          stylImage={[styles.icon24]}/>
-      <View style={[{alignItems: 'center',flexDirection:'row',justifyContent:'center'}, styles.mt20,]}>
+      <Logo imageUrl={icons.google} stylImage={[styles.icon24]} />
+      <View
+        style={[
+          {
+            alignItems: 'center',
+            flexDirection: 'row',
+            justifyContent: 'center',
+          },
+          styles.mt20,
+        ]}>
         <Text style={[styles.ts12]}>Already have an account?</Text>
         <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-          <Text style={[{color: colors.primary,textDecorationLine:'underline'}, styles.fwBold, styles.ts12]}>
+          <Text
+            style={[
+              {color: colors.primary, textDecorationLine: 'underline'},
+              styles.fwBold,
+              styles.ts12,
+            ]}>
             Sign In
           </Text>
         </TouchableOpacity>
@@ -78,4 +102,4 @@ const CreatingAccount = () => {
   );
 };
 
-export default CreatingAccount;
+export default CreateAccount;

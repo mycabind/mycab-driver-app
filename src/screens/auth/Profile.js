@@ -21,7 +21,7 @@ const Profile = () => {
     <SafeAreaView style={[styles.p16]}>
       <TitleHeader
         onPress={() => {
-          navigation.navigate('CreatingAccount');
+          navigation.navigate('CreateAccount');
         }}
       />
 

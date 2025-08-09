@@ -1,5 +1,5 @@
-export {default as CreatingAccount} from "./CreatingAccount";
-export {default as SignIn} from "./SignIn";
-export {default as NewPass} from "./NewPass";
-export {default as VerifyOtp} from "./VerifyOtp";
-export {default as Profile} from "./Profile";
+export {default as SignIn} from "./signIn";
+export {default as NewPass} from "./newPassword";
+export {default as VerifyOtp} from "./verifyOtp";
+export {default as Profile} from "./profile";
+export {default as CreateAccount} from "./createAccount"
