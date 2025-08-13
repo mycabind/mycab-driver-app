@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
-import {View, TextInput, StyleSheet} from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput, Dimensions } from 'react-native';
 import styles from '../../assets/styles';
 import colors from '../../assets/colors';
- 
 
-const OTPInput = ({OTPInputStyle}) => {
+const { width, height } = Dimensions.get('window');
+
+const wp = percentage => (width * percentage) / 100;   
+const hp = percentage => (height * percentage) / 100; 
+
+const OTPInput = ({ style }) => {
   const [otp, setOtp] = useState(['', '', '', '']);
   const refInputs = {};
 
@@ -13,19 +17,14 @@ const OTPInput = ({OTPInputStyle}) => {
     newOtp[index] = text;
     setOtp(newOtp);
 
-    // Move to the next input if a digit is entered
     if (text && index < otp.length - 1) {
-      const nextInput = `input-${index + 1}`;
-      refInputs[nextInput]?.focus();
+      refInputs[`input-${index + 1}`]?.focus();
     }
   };
 
   const handleKeyPress = (event, index) => {
-    const key = event.nativeEvent.key;
-    if (key === 'Backspace' && otp[index] === '' && index > 0) {
-      // Move to the previous input if backspace is pressed and the current box is empty
-      const prevInput = `input-${index - 1}`;
-      refInputs[prevInput]?.focus();
+    if (event.nativeEvent.key === 'Backspace' && otp[index] === '' && index > 0) {
+      refInputs[`input-${index - 1}`]?.focus();
     }
   };
 
@@ -38,8 +37,9 @@ const OTPInput = ({OTPInputStyle}) => {
         },
         styles.fdRow,
         styles.mh20,
-        OTPInputStyle,
-      ]}>
+        style,
+      ]}
+    >
       {otp.map((digit, index) => (
         <TextInput
           key={index}
@@ -50,13 +50,13 @@ const OTPInput = ({OTPInputStyle}) => {
           onKeyPress={event => handleKeyPress(event, index)}
           style={[
             {
-              width: 50,
-              height: 50,
+              width: wp(12),             
+              height: hp(6),             
               borderWidth: 1,
               borderColor: colors.grey80,
-              borderRadius: 10,
+              borderRadius: 10,        
               textAlign: 'center',
-              fontSize: 18,
+              fontSize: wp(5),            
               backgroundColor: colors.smoke,
               color: colors.black,
             },
@@ -69,3 +69,4 @@ const OTPInput = ({OTPInputStyle}) => {
 };
 
 export default OTPInput;
+

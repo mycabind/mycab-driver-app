@@ -5,6 +5,7 @@ import {TitleInput, Button, TitleHeader} from '../../components/shared';
 import styles from '../../assets/styles';
 import colors from '../../assets/colors';
 
+
 const NewPass = () => {
     const navigation = useNavigation();
   return (

@@ -3,7 +3,6 @@ import React from 'react';
 import styles from '../../assets/styles';
 import colors from '../../assets/colors';
 import {
-  TitleInput,
   OTPInput,
   Button,
   TitleHeader,
@@ -12,7 +11,11 @@ import {
 const VerifyOtp = ({navigation, route}) => {
   return (
     <SafeAreaView style={[styles.p16]}>
-      <TitleHeader onPress={()=>{navigation.navigate('NewPass')}}/>
+      <TitleHeader
+        onPress={() => {
+          navigation.navigate('NewPass');
+        }}
+      />
 
       <View style={[{alignItems: 'center'}, styles.mt20]}>
         <Text style={[styles.h1, styles.mb12]}>Verify Code</Text>
@@ -45,11 +48,9 @@ const VerifyOtp = ({navigation, route}) => {
         ]}>
         Resend Code
       </Text>
-      <Button label={'Verify'} buttonStyle={[styles.mt24]}/>
+      <Button label={'Verify'} buttonStyle={[styles.mt24]} />
     </SafeAreaView>
   );
 };
 
 export default VerifyOtp;
-
-
