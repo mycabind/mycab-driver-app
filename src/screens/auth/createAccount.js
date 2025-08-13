@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, SafeAreaView, TouchableOpacity} from 'react-native';
+import {View, Text, Pressable, SafeAreaView, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import styles from '../../assets/styles';
 import {
@@ -16,25 +16,39 @@ const CreateAccount = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={[styles.p16]}>
-      <View style={[{alignItems: 'center'}, styles.mt10]}>
+      <View style={[{alignItems: 'center'}, styles.mt24]}>
         <Text style={[styles.h1, styles.mb12]}>Create Account</Text>
         <Text
           style={[
             {color: colors.black400, textAlign: 'center'},
-            styles.ts16,
+            styles.pdh48,
+            styles.ts14,
             styles.mb12,
           ]}>
           fill your information below or register with your social account
         </Text>
       </View>
-      <TitleInput title="Name" placeholder="Name" />
-      <TitleInput title="Email" placeholder="example@gmail.com" />
+      <TitleInput
+        title="Name"
+        placeholder="Name"
+        style={[styles.mb12, styles.mt20]}
+      />
+      <TitleInput
+        title="Email"
+        placeholder="example@gmail.com"
+        style={[styles.mb12]}
+      />
       <TitleInput title="Password" secureTextEntry="true" />
       <CheckBox label="Agree with Terms & Condition" />
-      <Button label="Sign up" onPress={() => navigation.navigate('Profile')} />
+      <Button
+        label="Sign up"
+        onPress={() => navigation.navigate('ProfileSetup')}
+        style={[styles.mt20]}
+      />
       <View
         style={[
-          styles.mt12,
+          styles.mt48,
+          styles.mb32,
           {
             flex: 1,
             justifyContent: 'center',
@@ -86,16 +100,18 @@ const CreateAccount = () => {
           },
           styles.mt20,
         ]}>
-        <Text style={[styles.ts12]}>Already have an account?</Text>
+        <Text style={[styles.ts14, styles.mr8]}>Already have an account?</Text>
         <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-          <Text
-            style={[
-              {color: colors.primary, textDecorationLine: 'underline'},
-              styles.fwBold,
-              styles.ts12,
-            ]}>
-            Sign In
-          </Text>
+          <TouchableOpacity>
+            <Text
+              style={[
+                {color: colors.primary, textDecorationLine: 'underline'},
+                styles.fwBold,
+                styles.ts14,
+              ]}>
+              Sign In
+            </Text>
+          </TouchableOpacity>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

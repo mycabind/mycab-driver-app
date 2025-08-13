@@ -8,7 +8,7 @@ const { width, height } = Dimensions.get('window');
 const wp = percentage => (width * percentage) / 100;   
 const hp = percentage => (height * percentage) / 100; 
 
-const OTPInput = ({ OTPInputStyle }) => {
+const OTPInput = ({ style }) => {
   const [otp, setOtp] = useState(['', '', '', '']);
   const refInputs = {};
 
@@ -37,7 +37,7 @@ const OTPInput = ({ OTPInputStyle }) => {
         },
         styles.fdRow,
         styles.mh20,
-        OTPInputStyle,
+        style,
       ]}
     >
       {otp.map((digit, index) => (

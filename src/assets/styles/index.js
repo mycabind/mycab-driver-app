@@ -322,7 +322,7 @@ const styles = StyleSheet.create({
       ios: {fontSize: 22},
       android: {fontSize: 20},
     }),
-    fontWeight: 'bold',
+    fontWeight: '600',
   },
   h3: {
     // ...Platform.select({
@@ -330,11 +330,11 @@ const styles = StyleSheet.create({
     //   android: {fontSize: 18},
     // }),
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '500',
   },
   h4: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: '400',
   },
   h5: {
     ...Platform.select({
@@ -342,11 +342,11 @@ const styles = StyleSheet.create({
       android: {fontSize: 14},
     }),
     color: colors.black,
-    fontWeight: 'bold',
+    fontWeight: '300',
   },
   h6: {
     fontSize: 12,
-    fontWeight: 'bold',
+    fontWeight: "200",
   },
 
   logo: {
